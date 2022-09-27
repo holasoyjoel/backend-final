@@ -1,7 +1,7 @@
 const {request,response} = require("express")
 const Proveedor = require("../models/Proveedor-model");
 
-const proveedoresGet = (request = req, response = res)=>{
+const proveedoresGet = (req, res)=>{
     Proveedor.find({estado:true}, (error , proveedores)=>{
         if(error){
             res.status(400).json({
@@ -19,7 +19,7 @@ const proveedoresGet = (request = req, response = res)=>{
     })
 }
 
-const proveedorGet = (request = req , response = res)=>{
+const proveedorGet = ( req ,  res)=>{
     const {id} = req.params;
 
     if(!id){
@@ -46,7 +46,7 @@ const proveedorGet = (request = req , response = res)=>{
     }) 
 }
 
-const proveedorPost = (request=req,resposne=res)=>{
+const proveedorPost = (req,res)=>{
     const {id , nombre} = req.body;
     if(id && nombre){
         return res.status(400).json({
@@ -72,7 +72,7 @@ const proveedorPost = (request=req,resposne=res)=>{
     })
 }
 
-const proveedorPatch =  (request=req,response=res)=>{
+const proveedorPatch =  (req,res)=>{
     const {id} = req.params;
     if(!id){
         return res.status(401).json({
@@ -99,7 +99,7 @@ const proveedorPatch =  (request=req,response=res)=>{
     })
 }
 
-const proveedorPut = (request=req,response=res)=>{
+const proveedorPut = (req,res)=>{
     const {id} = req.params;
     const {nombre} = req.body;
     if(!id){
@@ -134,7 +134,7 @@ const proveedorPut = (request=req,response=res)=>{
     })
 }
 
-const proveedorDelete =  (request=req,response=res)=>{
+const proveedorDelete =  (req,res)=>{
     const {id} = req.params;
     if(!id){
         return res.status(400).json({
