@@ -18,7 +18,8 @@ mongoose.connect(MONGODBCONNECT)
     console.log("DB conectada");
 })
 .catch(function(error){
-    console.log(error)
+
+    console.log(error, "errorrrr")
 })
 
 
